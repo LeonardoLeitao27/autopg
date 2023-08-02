@@ -7,8 +7,14 @@ with open('extrato.txt', 'r') as arquivo:
         cont+=1
         
         if(cont != 1):
-            vetor.insert(final,linha.strip())
-            final+=1
+            sem_aspas = linha.strip()
+            a = sem_aspas.replace('"', '')
+            
+            vetor_final = a.split(";")
 
-        print(vetor)     
-        vetor.clear()
+            if(vetor_final[5] != 'C' and vetor_final[3]!= 'SALDO DIA'):    
+                print(vetor_final[1])   
+                print(vetor_final[3])
+                print(vetor_final[4])
+
+    vetor_final.clear()
