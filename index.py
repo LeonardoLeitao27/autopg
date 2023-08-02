@@ -13,8 +13,7 @@ with open('extrato.txt', 'r') as arquivo:
             vetor_final = a.split(";")
 
             if(vetor_final[5] != 'C' and vetor_final[3]!= 'SALDO DIA'):    
-                print(vetor_final[1])   
-                print(vetor_final[3])
-                print(vetor_final[4])
+                print(vetor_final[1],vetor_final[3],vetor_final[4])   
+
 
     vetor_final.clear()
