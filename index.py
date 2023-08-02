@@ -11,6 +11,14 @@ def intData(inteiro_data):
 
     return(data_formatada_saida)
 
+def intReais(inteiro):
+    import locale
+
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+    numero_inteiro = float(inteiro)
+    valor_formatado = locale.currency(numero_inteiro / 100.0, grouping=True, symbol=True)
+
+    return(valor_formatado)
 
 vetor = []
 cont = 0
@@ -26,8 +34,9 @@ with open('extrato.txt', 'r') as arquivo:
             
             vetor_final = a.split(";")
 
-            if(vetor_final[5] != 'C' and vetor_final[3]!= 'SALDO DIA'):    
-                print(intData(vetor_final[1]),vetor_final[3],vetor_final[4])   
+            if(vetor_final[5] != 'C' and vetor_final[3]!= 'SALDO DIA'):   
+                 
+                print(intData(vetor_final[1]),vetor_final[3],intReais(vetor_final[4]))   
 
 
     vetor_final.clear()
